@@ -41,6 +41,11 @@ class AdminPanelProvider extends PanelProvider
             ->font('Bitcount Prop Single', provider: GoogleFontProvider::class)
             ->brandName('CodeWithTony')
             ->favicon(asset('images/logo.png'))
+            ->navigationGroups([
+                'Employee Management',
+                'System Management',
+                'User Management',
+            ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([

@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DepartmentResource\Pages;
 use App\Filament\Resources\DepartmentResource\RelationManagers;
+use App\Filament\Resources\DepartmentResource\RelationManagers\EmployeesRelationManager;
 use App\Models\Department;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -47,8 +48,8 @@ class DepartmentResource extends Resource
                     ->sortable()
                     ->label('Department')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('employee_count')
-                    ->counts('employee')
+                Tables\Columns\TextColumn::make('employees_count')
+                    ->counts('employees')
                     ->label('Employees'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -76,7 +77,7 @@ class DepartmentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            EmployeesRelationManager::class,
         ];
     }
 
