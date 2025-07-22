@@ -44,7 +44,12 @@ class DepartmentResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->sortable()
+                    ->label('Department')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('employee_count')
+                    ->counts('employee')
+                    ->label('Employees'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -14,6 +14,10 @@ class Employee extends Model
         'state_id',
         'city_id',
         'department_id',
+        'address',
+        'zip_code',
+        'date_of_birth',
+        'date_of_hire',
     ];
 
     public function country()
