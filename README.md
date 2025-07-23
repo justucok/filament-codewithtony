@@ -5,12 +5,6 @@ This project was developed by following a tutorial series by [Tony Xhepa](https:
 
 ---
 
-## 📸 Screenshots
-
-*(Add screenshots here if available)*
-
----
-
 ## 🚀 Features
 
 - Employee data management (Create, Read, Update, Delete)
@@ -81,6 +75,8 @@ php artisan db:seed
 php artisan serve
 ```
 Buka browser dan akses: http://localhost:8000
+
+---
 
 👨‍💻 Author
 Developed by Just Ucok
