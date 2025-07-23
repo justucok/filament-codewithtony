@@ -28,6 +28,8 @@ class EmployeeResource extends Resource
 
     protected static ?string $navigationGroup = 'Employee Management';
 
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
@@ -87,9 +89,9 @@ class EmployeeResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('first_name')
                             ->required(),
-                        Forms\Components\TextInput::make('last_name'),
-                        Forms\Components\TextInput::make('middle_name')
+                        Forms\Components\TextInput::make('last_name')
                             ->required(),
+                        Forms\Components\TextInput::make('middle_name'),
                     ])->columns(3),
                 Forms\Components\Section::make('Contact Information')
                     ->description('Please fill in the contact details of the employee.')
