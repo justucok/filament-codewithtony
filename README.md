@@ -79,7 +79,7 @@ Buka browser dan akses: http://localhost:8000/app
 ---
 
 👨‍💻 Author
-Developed by Just Ucok
+Developed by Abdurrahman Wijasena
 Tutorial Credit: Tony Xhepa (CodeWithTony)
 
 ## License
