@@ -4,16 +4,19 @@ namespace App\Providers\Filament;
 
 use App\Filament\App\Pages\Tenancy\EditTeamProfile;
 use App\Filament\App\Pages\Tenancy\RegisterTeam;
+use App\Http\Middleware\VerifyIsAdmin;
 use App\Models\Team;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -26,9 +29,18 @@ class AppPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->default()
             ->id('app')
             ->path('app')
             ->login()
+            ->registration()
+            ->profile()
+            ->userMenuItems([
+                MenuItem::make()
+                ->label('Admin Panel')
+                ->url('/admin')
+                ->visible(fn (): bool => auth()->user()?->is_admin)
+            ])
             ->colors([
                 'danger' => Color::Green,
                 'gray' => Color::Neutral,
