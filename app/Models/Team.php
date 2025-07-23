@@ -21,6 +21,11 @@ class Team extends Model
         return $this->hasMany(Employee::class);
     }
 
+    public function departments()
+    {
+        return $this->hasMany(Department::class);
+    }
+
     public function members()
     {
         return $this->belongsToMany(User::class);
