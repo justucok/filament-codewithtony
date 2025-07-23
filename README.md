@@ -74,7 +74,7 @@ php artisan db:seed
 ```
 php artisan serve
 ```
-Buka browser dan akses: http://localhost:8000
+Buka browser dan akses: http://localhost:8000/app
 
 ---
 
